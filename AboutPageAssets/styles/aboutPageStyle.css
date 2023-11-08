@@ -1,0 +1,582 @@
+@charset "utf-8";
+/* Global Styles */
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 92%;
+	max-width: 960px;
+	padding-left: 2.275%;
+	padding-right: 2.275%;
+}
+/* plug and play */
+.prof-link {
+  font-weight: bold; /* 加粗 */
+  color: #007bff; /* 设置颜色，这里用的是Bootstrap的链接蓝色 */
+  text-decoration: none; /* 移除下划线，如果需要的话 */
+}
+
+/* 可选：添加鼠标悬停效果 */
+.prof-link:hover {
+  color: #0056b3; /* 鼠标悬停时的颜色 */
+  text-decoration: underline; /* 添加下划线 */
+}
+
+/* 设置链接的基本样式 */
+a {
+    color: #555; /* 设置链接颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 16px; /* 设置字体大小 */
+}
+
+/* 鼠标悬停时的链接样式 */
+a:hover {
+    text-decoration: underline; /* 添加下划线 */
+}
+/* 设置图标的样式 */
+.fab, .fas {
+    margin-right: 5px; /* 设置图标和文本之间的间距 */
+    color: #555; /* 设置图标的颜色 */
+    font-size: 16px; /* 设置图标的大小 */
+}
+/* Header */
+header {
+	text-align: center;
+	display: block;
+}
+header .profileLogo .logoPlaceholder {
+	background-color: rgba(208,207,207,1.00);
+	width: 187px;
+	text-align: center;
+}
+header .logoPlaceholder span {
+	width: 80px;
+	height: 22px;
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(255,255,255,1.00);
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 53px;
+}
+header .profilePhoto {
+	background-color: rgba(237,237,237,1.00);
+	width: 259px;
+/*	border-radius: 50%;*/
+	height: 259px;
+}
+header .profilePhoto img {
+    display: block; /* 使图像块状显示，这样它下方的文字可以直接在下一行显示 */
+    width: 259px;
+    height: 259px;
+}
+header .profileCaption {
+    margin-top: 10px; /* 如果需要，你可以增加上边距来调整文字与图片之间的间距 */
+    font-size: 16px; /* 调整为你需要的字体大小 */
+    color: #333; /* 设置文字颜色 */
+}
+header .profileLinks p {
+    margin: 10px 0;  /* 添加上下的间距，可以根据需要调整 */
+}
+header .profileHeader h1 {
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 24px;
+}
+header .profileHeader h3 {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+}
+hr {
+	background-color: rgba(208,207,207,1.00);
+	height: 1px;
+}
+header .profileHeader p {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.8;
+	overflow-y: auto;
+}
+header .socialNetworkNavBar {
+	text-align: center;
+	display: block;
+	margin-top: 60px;
+	clear: both;
+}
+header .socialNetworkNavBar .socialNetworkNav {
+	border-radius: 50%;
+	cursor: pointer;
+}
+header .socialNetworkNavBar .socialNetworkNav img:hover {
+	opacity: 0.5;
+}
+/*show*/
+.scroll-show-container {
+  	background-color: #333;
+  	overflow: auto;
+  	white-space: nowrap;
+  	padding: 10px;
+}
+
+.scroll-show-container img {
+  	padding: 10px;
+	max-height: 300px;
+	max-width: 300px;
+}
+
+/* News Content section */
+.mainContent .section1 {
+	display: block;
+}
+.section1 .sectionTitle, .section2 .sectionTitle {
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 18px;
+	font-weight: 700;
+/*	text-transform: uppercase;取消大写*/
+}
+.section1 .sectionTitleRule{
+	margin: 0 3% 0 0;
+/*	float: left;*/
+	clear: both;
+}
+.mainContent .section1 .section1Content {
+	float: left;
+	clear: both;
+	font-family: ProximaNova;
+	font-size: 14px;
+	font-weight: 100;
+	color: rgba(146,168,209,1.00);
+}
+.mainContent .section1 .section1Content span {
+	color: rgba(15,76,129,1.00);
+	font-family: sans-serif;
+}
+/* Pubulications Content section */
+.section2 .sectionTitleRule {
+	margin: 0 3% 0 0;
+	float: left;
+	clear: both;
+}
+.section2 .sectionTitleRule2 {
+	background-color: rgba(208,207,207,1.00);
+	height: 1px;
+	padding: 0px;
+}
+.section2 .newPaper {
+	clear: both;
+}
+.section2 .showPlace img {
+	max-width: 360px;
+	max-height: 222px;
+    border: 3px solid #555;
+/*	width: 100%;*/
+	min-width: 360px;
+	min-height: 222px;
+}
+.section2 .sectionContentTitle {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 18px;
+	font-weight: 700;
+}
+.section2 .sectionContentSubTitle {
+	font-family: sans-serif;
+	color: rgba(68,67,67,1.00);
+	font-size: 14px;
+	font-weight: 400;
+}
+.section2 .sectionContent {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.8;
+}
+.mainContent {
+	display: block;
+}
+.mainContent .externalResourcesNav .externalResources {
+	background-color: rgba(208,207,207,1.00);
+	display: inline-block;
+	text-align: center;
+	margin-top: 0px;
+	padding-top: 3%;
+	cursor: pointer;
+}
+.stretch {
+	content: '';
+	display: inline-block;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+/* Footer */
+footer .footerDisclaimer {
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: rgba(104,103,103,1.00);
+	font-weight: 700;
+}
+footer .footerDisclaimer span {
+	color: rgba(181,178,178,1.00);
+	font-weight: 400;
+}
+footer .footerNote {
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: rgba(104,103,103,1.00);
+	font-weight: 700;
+}
+footer .footerNote span {
+	color: rgba(181,178,178,1.00);
+	font-weight: 400;
+}
+
+/* Media query for Mobile devices---------------------------------------------------*/
+@media only screen and (min-width : 285px) and (max-width : 480px) {
+/* Header */
+header {
+	width: 100%;
+	float: none;
+}
+header .profileLogo .logoPlaceholder {
+	display: inline-block;
+}
+header .profilePhoto {
+	display: inline-block;
+}
+header .profileHeader {
+	text-align: center;
+	margin-top: 10%;
+}
+header .profileHeader p {
+	text-align: justify;
+}
+header .socialNetworkNavBar {
+	text-align: center;
+	display: block;
+	margin-top: 60px;
+	clear: both;
+	margin-bottom: 15%;
+}
+header .socialNetworkNavBar .socialNetworkNav {
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	margin-right: 23px;
+}
+/* Main content sections */
+.mainContent .section1 {
+	text-align: center;
+	margin-bottom: 10%;
+}
+.section1 .section1Title, .section2 .section1Title {
+	text-align: center;
+}
+.section1 .sectionTitleRule, .section2 .sectionTitleRule {
+	width: 100%;
+}
+.section1 .sectionTitleRule2, .section2 .sectionTitleRule2 {
+	display: none;
+}
+.mainContent .section1 .section1Content {
+	display: inline-block;
+	text-align: left;
+	font-family: sans-serif;
+}
+.mainContent .section2 {
+	display: block;
+	text-align: center;
+}
+.section2 .section2Content {
+	margin-top: 10%;
+	text-align: justify;
+	margin-bottom: 10%;
+}
+.mainContent .externalResourcesNav {
+	margin-bottom: 10%;
+}
+.mainContent .externalResourcesNav .externalResources {
+	width: 100%;
+	height: 35px;
+}
+/* Footer */
+footer {
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+}
+}
+
+/* Media Query for Tablets */
+@media only screen and (min-width : 481px) and (max-width : 1024px) {
+/* Header */
+header {
+	width: 100%;
+	float: none;
+}
+header .profileLogo .logoPlaceholder {
+	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
+}
+header .profilePhoto {
+	float: left;
+	clear: both;
+	margin-right: 3%;
+	margin-top: 5%;
+}
+header .profileHeader {
+	text-align: left;
+	margin-top: 7%;
+}
+header .socialNetworkNavBar .socialNetworkNav {
+	width: 74px;
+	height: 74px;
+	display: inline-block;
+	margin-right: 23px;
+}
+/* Main content and sections */
+.section1 .section1Title, .section2 .section1Title {
+	text-align: center;
+}
+.section1 .sectionTitleRule, .section2 .sectionTitleRule {
+	width: 100%;
+}
+.section1 .sectionTitleRule2, .section2 .sectionTitleRule2 {
+	display: none;
+}
+.mainContent .section1 .section1Content {
+	display: block;
+	margin: 0% 0% 0% 20%;
+	font-family: sans-serif;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+.mainContent .section2 {
+	clear: both;
+}
+.section2 .section2Content {
+	padding: 0px;
+	margin-left: 20%;
+	font-family: sans-serif;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+.mainContent .externalResourcesNav {
+	margin-left: 20%;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+	padding-top: 0px;
+	clear: both;
+}
+.mainContent .externalResourcesNav .externalResources {
+	width: 199px;
+	height: 48px;
+	margin-top: 5%;
+}
+/* Footer */
+footer .footerDisclaimer {
+	float: left;
+	margin-left: 3%;
+	font-family: sans-serif;
+}
+footer .footerNote {
+	float: right;
+	margin-right: 3%;
+	font-family: sans-serif;
+}
+}
+
+/* Desktops and laptops  */
+/* 需要创建keyframes来定义我们的'lightning'动画 */
+@keyframes lightning {
+  0%, 100% {
+    transform: translateY(0); /* 开始和结束时，元素处于初始位置 */
+  }
+  50% {
+    transform: translateY(-5px); /* 让元素向上移动 */
+    opacity: 0.7; /* 改变透明度来创建一个“闪电”效果 */
+  }
+}
+@media only screen and (min-width:1025px) {
+/* Header */
+header .profileLogo .logoPlaceholder {
+	float: left;
+	margin-bottom: 50px;
+}
+header .profilePhoto {
+	float: left;
+	clear: both;
+	margin-right: 3%;
+}
+header .profileHeader {
+	text-align: left;
+	padding-top: 10%;
+}
+header .socialNetworkNavBar .socialNetworkNav {
+	width: 74px;
+	height: 74px;
+	display: inline-block;
+	margin-right: 23px;
+}
+/* Main content sections */
+.section1 .sectionTitleRule{
+	color: rgba(146,146,146,1.00);
+    width: 100%;
+}
+.section2 .sectionTitleRule {
+	width: 38%;
+}
+.mainContent .section1 .section1Content {
+	display: block;
+	margin-top: 0%;
+	margin-right: 0%;
+	margin-left: 0%;
+	margin-bottom: 0%;
+	font-family: sans-serif;
+}
+.mainContent .section2 {
+	clear: both;
+	background-color: #F4F7F8;
+}
+	.section2 .onlyIMG {
+	  float: left;
+	  line-height: 0; /* 防止图片下方出现空隙 */
+	}
+	.section2 .onlyIMG img{
+		  width: 360px;
+		  height: 222px;
+		  max-width: 100%;
+		  max-height: 100%;
+		  object-fit: contain; /* 保持长宽比 */
+		  border: 3px solid #555;
+		  display: block;
+	}
+	.section2 .showPlace {
+	  float: left;
+	  line-height: 0; /* 防止图片下方出现空隙 */
+	}
+		.section2 .showPlace img {
+		  width: 360px;
+		  height: 222px;
+		  max-width: 100%;
+		  max-height: 100%;
+		  object-fit: contain; /* 保持长宽比 */
+		  border: 3px solid #555;
+		  display: block;
+		}
+.section2 .section2Content {
+	padding: 0px;
+	margin-left: 41.5%;
+	margin-rig: 0%;
+	font-family: sans-serif;
+	word-wrap: break-word;
+}
+.section2 .btn {
+  background-color: #ddd;
+  border: 2px solid #CEB5B5;
+  border-radius: 5px; /* 添加圆角 */
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  display: inline-block; /* 让a标签表现得像一个按钮 */
+  text-decoration: none; /* 移除a标签的下划线 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* 过渡效果 */
+}
+
+.section2 .btn:hover {
+  background-color: #3e8e41;
+  color: white;
+  text-decoration: none; /* 确保悬停时不会出现下划线 */
+  box-shadow: 0 5px 15px rgba(62, 142, 65, 0.4); /* 放大阴影并更改颜色 */
+  /* 为悬停状态添加一个动画 */
+  animation: lightning 0.5s linear infinite;
+}
+
+.mainContent .externalResourcesNav {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+	padding-top: 0px;
+	clear: both;
+}
+.mainContent .externalResourcesNav .externalResources {
+	width: 199px;
+	height: 48px;
+}
+/* Footer */
+footer .footerDisclaimer {
+	float: left;
+	margin-left: 3%;
+	font-family: sans-serif;
+}
+footer .footerNote {
+	float: right;
+	margin-right: 3%;
+	font-family: sans-serif;
+}
+}
+
+#citation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f8f9fa; /* 一个温和的灰色背景 */
+  border-radius: 10px; /* 圆角边框 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加阴影以提高层次感 */
+  width: 80%; /* 或者根据内容大小设定固定宽度 */
+  max-width: 600px; /* 最大宽度，避免在大屏幕上过宽 */
+  padding: 20px;
+  z-index: 1000;
+  box-sizing: border-box; /* 避免内边距影响宽度计算 */
+}
+
+#citation-content {
+  margin-bottom: 20px; /* 给复制按钮留出空间 */
+  padding: 10px;
+  background-color: #ffffff; /* 白色背景强调内容 */
+  border: 1px solid #ddd; /* 边框定义内容区域 */
+  overflow: auto; /* 长文本滚动 */
+  max-height: 300px; /* 最大高度，超出滚动 */
+}
+
+#copy-citation {
+  display: block;
+  width: 100%; /* 按钮宽度与模态宽度一致 */
+  padding: 10px 0; /* 垂直内边距 */
+  background-color: #007bff; /* Bootstrap的蓝色 */
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px; /* 按钮圆角 */
+  cursor: pointer; /* 鼠标悬停时显示手形指针 */
+  transition: background-color 0.3s ease; /* 悬停效果平滑过渡 */
+}
+
+#copy-citation:hover {
+  background-color: #0056b3; /* 按钮悬停时的背景色 */
+}
+
+/* 关闭按钮样式 */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
