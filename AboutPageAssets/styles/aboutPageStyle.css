@@ -291,6 +291,8 @@ header .socialNetworkNavBar .socialNetworkNav {
 	display: inline-block;
 	text-align: left;
 	font-family: sans-serif;
+	font-weight: bold;
+	font-size: larger;
 }
 .mainContent .section2 {
 	display: block;
@@ -301,6 +303,20 @@ header .socialNetworkNavBar .socialNetworkNav {
 	text-align: justify;
 	margin-bottom: 10%;
 }
+.section2 .onlyIMG img {
+    width: 100%;       /* 设置图片宽度为容器宽度的100% */
+    height: auto;      /* 设置图片高度自动，以保持图片的宽高比 */
+    max-width: 100%;   /* 确保图片不会超过其容器宽度 */
+    object-fit: cover; /* 如果需要的话，可以使用cover保持长宽比而填充整个容器 */
+    border: 3px solid #555; /* 如果需要保留边框 */
+  }
+.section2 .showPlace img {
+    width: 100%; /* 宽度占满容器 */
+    height: auto; /* 高度自动按比例调整 */
+    max-width: 100%; /* 最大宽度限制为100% */
+    max-height: none; /* 移除最大高度限制 */
+    object-fit: contain; /* 保持图片比例 */
+  }
 .mainContent .externalResourcesNav {
 	margin-bottom: 10%;
 }
@@ -396,7 +412,7 @@ footer .footerNote {
 }
 }
 
-/* Desktops and laptops  */
+/* --------------------------------------------------------------------Desktops and laptops  */
 /* 需要创建keyframes来定义我们的'lightning'动画 */
 @keyframes lightning {
   0%, 100% {
@@ -443,6 +459,8 @@ header .socialNetworkNavBar .socialNetworkNav {
 	margin-left: 0%;
 	margin-bottom: 0%;
 	font-family: sans-serif;
+	font-weight: bold;
+	font-size: larger;
 }
 .mainContent .section2 {
 	clear: both;
