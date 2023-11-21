@@ -1,6 +1,6 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
 /* Global Styles */
-
 body {
 	margin-left: auto;
 	margin-right: auto;
@@ -11,123 +11,282 @@ body {
 }
 /* plug and play */
 .prof-link {
-  font-weight: bold; /* 加粗 */
-  color: #007bff; /* 设置颜色，这里用的是Bootstrap的链接蓝色 */
-  text-decoration: none; /* 移除下划线，如果需要的话 */
+  font-weight: bold;
+  color: rgba(15,76,129,1.00);
+  text-decoration: none;
 }
 
-/* 可选：添加鼠标悬停效果 */
 .prof-link:hover {
-  color: #0056b3; /* 鼠标悬停时的颜色 */
-  text-decoration: underline; /* 添加下划线 */
+  color: #007bff;
+  text-decoration: underline;
 }
 
-/* 设置链接的基本样式 */
-a {
-    color: #555; /* 设置链接颜色 */
-    text-decoration: none; /* 去掉下划线 */
-    font-size: 16px; /* 设置字体大小 */
-}
-
-/* 鼠标悬停时的链接样式 */
-a:hover {
-    text-decoration: underline; /* 添加下划线 */
-}
-/* 设置图标的样式 */
 .fab, .fas {
     margin-right: 5px; /* 设置图标和文本之间的间距 */
     color: #555; /* 设置图标的颜色 */
     font-size: 16px; /* 设置图标的大小 */
 }
-/* Header */
+
+/* Base styles for header */
 header {
-	text-align: center;
-	display: block;
+    text-align: center;
+    display: block;
 }
+
+/* Profile logo styles */
 header .profileLogo .logoPlaceholder {
-	background-color: rgba(208,207,207,1.00);
-	width: 187px;
-	text-align: center;
+    background-color: rgba(208,207,207,1.00);
+    width: 187px;
+    text-align: center;
 }
+
 header .logoPlaceholder span {
-	width: 80px;
-	height: 22px;
-	font-family: 'Montserrat', sans-serif;
-	color: rgba(255,255,255,1.00);
-	font-size: 30px;
-	font-weight: 700;
-	line-height: 53px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 53px;
+    color: rgba(255,255,255,1.00);
+    width: 80px;
+    height: 22px;
 }
+
+/* Profile photo styles */
 header .profilePhoto {
-	background-color: rgba(237,237,237,1.00);
-	width: 259px;
-/*	border-radius: 50%;*/
-	height: 259px;
-}
-header .profilePhoto img {
-    display: block; /* 使图像块状显示，这样它下方的文字可以直接在下一行显示 */
+    background-color: rgba(237,237,237,1.00);
     width: 259px;
     height: 259px;
 }
-header .profileCaption {
-    margin-top: 10px; /* 如果需要，你可以增加上边距来调整文字与图片之间的间距 */
-    font-size: 16px; /* 调整为你需要的字体大小 */
-    color: #333; /* 设置文字颜色 */
-}
-header .profileLinks p {
-    margin: 10px 0;  /* 添加上下的间距，可以根据需要调整 */
-}
-header .profileHeader h1 {
-	font-family: 'Montserrat', sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 30px;
-	font-weight: 700;
-	line-height: 24px;
-}
-header .profileHeader h3 {
-	font-family: sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 24px;
-}
-hr {
-	background-color: rgba(208,207,207,1.00);
-	height: 1px;
-}
-header .profileHeader p {
-	font-family: sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.8;
-	overflow-y: auto;
-}
-header .socialNetworkNavBar {
-	text-align: center;
-	display: block;
-	margin-top: 60px;
-	clear: both;
-}
-header .socialNetworkNavBar .socialNetworkNav {
-	border-radius: 50%;
-	cursor: pointer;
-}
-header .socialNetworkNavBar .socialNetworkNav img:hover {
-	opacity: 0.5;
-}
-/*show*/
-.scroll-show-container {
-  	background-color: #333;
-  	overflow: auto;
-  	white-space: nowrap;
-  	padding: 10px;
+
+header .profilePhoto img {
+    width: 259px;
+    height: 259px;
+    display: block;
 }
 
+/* Profile header styles */
+header .profileHeader h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(43,48,123,1.00);
+}
+
+header .profileHeader h3 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(146,146,146,1.00);
+}
+
+header .profileHeader hr{
+	background-color: rgba(15,76,129,0.40);
+	height: 1.0px;
+	padding: 0px;
+/*	margin-bottom: 25px;*/
+}
+
+header .profileHeader p {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #494A81;
+    overflow-y: auto;
+}
+
+/* Profile links styles */
+/*
+header .profileLinks p {
+    margin: 10px 0;
+    display: block;
+}
+*/
+header .profileLinks{
+	position:relative;
+	width:320px;
+	height:60px;
+	background: #fff;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:10px;
+	transform: translateX(-55px);
+}
+header .profileLinks ul {
+    width: 350px;
+    display: flex;
+}
+header .profileLinks ul li{
+    list-style: none;
+	position: relative;
+	width: 70px;
+	height: 60px;
+	z-index: 2;
+}
+header .profileLinks ul li a{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+}
+
+header .profileLinks ul li a .icon{
+	position: relative;
+	display: block;
+	line-height: 65px;
+	font-size: 1.5em;
+	transition: 0.5s;
+	color: #222327;
+}
+header .profileLinks ul li.active a .icon{
+	transform: translateY(-30px);
+	color: rgba(15,76,129,1.00);
+}
+header .profileLinks ul li a .icon-text{
+	position: absolute;
+	background:rgba(15,76,129,1.00);
+	color:#fff;
+	padding: 2px 7px;
+	border-radius: 12px;
+	font-weight:400;
+	font-size: 0.75em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	opacity:0;
+	transform: translatey(15px);
+}
+
+header .profileLinks ul li.active a .icon-text{
+	transform: translateY(-4px);
+	opacity:1;
+}
+header .profileLinks .indicator{
+	position: absolute;
+	top: -35%;
+	width: 70px;
+	height: 70px;
+	background: #fff;
+	border-radius: 50%;
+	Z-index: 1;
+	transition: 0.5s;
+}
+header .profileLinks .indicator::before{
+	content: "";
+	position: absolute;
+	top: 5px;
+	width: 30px;
+	height: 30px;
+	left:-28px;
+	background: transparent;
+	border-radius: 50%;
+	box-shadow: 15px 18px #fff;
+}
+
+header .profileLinks .indicator::after{
+	content: "";
+	position: absolute;
+	top: 5px;
+	width: 30px;
+	height: 30px;
+	right:-28px;
+	background: transparent;
+	border-radius: 50%;
+	box-shadow: -15px 18px #fff;
+}
+
+header .profileLinks ul li:nth-child(1).active ~ .indicator{
+	transform: translateX(calc(70px * 0));
+}
+header .profileLinks ul li:nth-child(2).active ~ .indicator{
+	transform: translateX(calc(70px * 1));
+}
+header .profileLinks ul li:nth-child(3).active ~ .indicator{
+	transform: translateX(calc(70px * 2));
+}
+header .profileLinks ul li:nth-child(4).active ~ .indicator{
+	transform: translateX(calc(70px * 3));
+}
+
+/* wechat */
+header .profileContainer .modal {
+  display: none; /* 保持不变，确保默认是隐藏的 */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+header .profileContainer .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 居中显示 */
+  padding: 50px;
+  border: 1px solid #888;
+  border-radius: 20px; /* 圆角边框 */
+  max-width: 25%; /* 设置最大宽度 */
+  max-height: 50%; /* 设置最大高度 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+header .profileContainer .modal-content img {
+  max-width: 100%; /* 图片最大宽度为容器宽度 */
+  max-height: 100%; /* 图片最大高度为容器高度 */
+  object-fit: contain; /* 调整图片以适应容器 */
+}
+
+
+header .profileContainer .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+header .profileContainer .close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Flexbox container for profile elements */
+header .profileContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Scroll show container styles */
+.scroll-show-container {
+    background-color: #ffffff;
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 65px;
+	margin-bottom: 65px;
+    clear: both;
+	padding: 20px;
+}
+
+.scroll-show-container a, 
 .scroll-show-container img {
-  	padding: 10px;
-	max-height: 300px;
-	max-width: 300px;
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.scroll-show-container a:hover,
+.scroll-show-container img:hover {
+    transform: scale(1.1);
 }
 
 /* News Content section */
@@ -136,13 +295,15 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 }
 .section1 .sectionTitle, .section2 .sectionTitle {
 	font-family: 'Montserrat', sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 18px;
+	color: rgba(11,11,82,1.00);
+	font-size: 24px;
 	font-weight: 700;
 /*	text-transform: uppercase;取消大写*/
 }
 .section1 .sectionTitleRule{
 	margin: 0 3% 0 0;
+	background-color: rgba(15,76,129,0.50);
+	height: 2.5px;
 /*	float: left;*/
 	clear: both;
 }
@@ -158,16 +319,29 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 	color: rgba(15,76,129,1.00);
 	font-family: sans-serif;
 }
+.mainContent .section1 .section1Content .icon {
+  	position: relative; /* 相对定位 */
+  	top: 5.5px;
+  	color: #222327;
+	font-weight: bold;
+	font-size: 1.2em;
+}
 /* Pubulications Content section */
+.section2  a {
+    color: #555;
+    text-decoration: none;
+    font-size: 16px;
+}
 .section2 .sectionTitleRule {
 	margin: 0 3% 0 0;
 	float: left;
 	clear: both;
 }
 .section2 .sectionTitleRule2 {
-	background-color: rgba(208,207,207,1.00);
-	height: 1px;
+	background-color: rgba(15,76,129,0.70);
+	height: 2.5px;
 	padding: 0px;
+	margin-bottom: 25px;
 }
 .section2 .newPaper {
 	clear: both;
@@ -179,25 +353,6 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 /*	width: 100%;*/
 	min-width: 360px;
 	min-height: 222px;
-}
-.section2 .sectionContentTitle {
-	font-family: sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 18px;
-	font-weight: 700;
-}
-.section2 .sectionContentSubTitle {
-	font-family: sans-serif;
-	color: rgba(68,67,67,1.00);
-	font-size: 14px;
-	font-weight: 400;
-}
-.section2 .sectionContent {
-	font-family: sans-serif;
-	color: rgba(146,146,146,1.00);
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.8;
 }
 .mainContent {
 	display: block;
@@ -216,6 +371,17 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
 	margin-left: 2%;
 	margin-right: 2%;
 }
+
+/* gallery */	
+.gallery{
+	display: block;
+	margin-top: 250px;
+	margin-bottom: 0px;
+	width: 40vmin;
+    height: 56vmin;
+/*	overflow: hidden;*/
+}
+
 /* Footer */
 footer .footerDisclaimer {
 	font-family: sans-serif;
@@ -260,19 +426,6 @@ header .profileHeader {
 header .profileHeader p {
 	text-align: justify;
 }
-header .socialNetworkNavBar {
-	text-align: center;
-	display: block;
-	margin-top: 60px;
-	clear: both;
-	margin-bottom: 15%;
-}
-header .socialNetworkNavBar .socialNetworkNav {
-	width: 60px;
-	height: 60px;
-	display: inline-block;
-	margin-right: 23px;
-}
 /* Main content sections */
 .mainContent .section1 {
 	text-align: center;
@@ -297,6 +450,25 @@ header .socialNetworkNavBar .socialNetworkNav {
 .mainContent .section2 {
 	display: block;
 	text-align: center;
+}
+.section2 .sectionContentTitle {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 18px;
+	font-weight: 700;
+}
+.section2 .sectionContentSubTitle {
+	font-family: sans-serif;
+	color: rgba(68,67,67,1.00);
+	font-size: 14px;
+	font-weight: 400;
+}
+.section2 .sectionContent {
+	font-family: sans-serif;
+	color: rgba(146,146,146,1.00);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.8;
 }
 .section2 .section2Content {
 	margin-top: 10%;
@@ -413,18 +585,11 @@ footer .footerNote {
 }
 
 /* --------------------------------------------------------------------Desktops and laptops  */
-/* 需要创建keyframes来定义我们的'lightning'动画 */
-@keyframes lightning {
-  0%, 100% {
-    transform: translateY(0); /* 开始和结束时，元素处于初始位置 */
-  }
-  50% {
-    transform: translateY(-5px); /* 让元素向上移动 */
-    opacity: 0.7; /* 改变透明度来创建一个“闪电”效果 */
-  }
-}
 @media only screen and (min-width:1025px) {
 /* Header */
+header {
+	padding-top: 10%;	
+}
 header .profileLogo .logoPlaceholder {
 	float: left;
 	margin-bottom: 50px;
@@ -436,13 +601,7 @@ header .profilePhoto {
 }
 header .profileHeader {
 	text-align: left;
-	padding-top: 10%;
-}
-header .socialNetworkNavBar .socialNetworkNav {
-	width: 74px;
-	height: 74px;
-	display: inline-block;
-	margin-right: 23px;
+	padding-top: 0%;
 }
 /* Main content sections */
 .section1 .sectionTitleRule{
@@ -457,15 +616,42 @@ header .socialNetworkNavBar .socialNetworkNav {
 	margin-top: 0%;
 	margin-right: 0%;
 	margin-left: 0%;
-	margin-bottom: 0%;
+	margin-bottom: 3%;
 	font-family: sans-serif;
 	font-weight: bold;
 	font-size: larger;
 }
 .mainContent .section2 {
 	clear: both;
-	background-color: #F4F7F8;
 }
+	.section2 .newPaper{
+		background-color: rgba(23,27,74,1);
+		border-radius: 25px;
+		padding: 15px;
+	}
+	.section2 .sectionContentTitle {
+		font-family: sans-serif;
+		color: rgba(245,221,113,1.00);
+		font-size: 18px;
+		font-weight: 700;
+	}
+	.section2 .sectionContentSubTitle {
+		font-family: sans-serif;
+		color: rgba(241,245,221,1.00); /*176,209,203*/
+		font-size: 14px;
+		font-weight: 350;
+	}
+	.section2 .sectionContentSubTitle a{
+		color: rgba(241,245,221,0.90);
+	}
+	.section2 .sectionContent {
+		font-family: sans-serif;
+		color: rgba(241,245,221,1.00);
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.8;
+	}
+
 	.section2 .onlyIMG {
 	  float: left;
 	  line-height: 0; /* 防止图片下方出现空隙 */
@@ -492,36 +678,172 @@ header .socialNetworkNavBar .socialNetworkNav {
 		  border: 3px solid #555;
 		  display: block;
 		}
-.section2 .section2Content {
-	padding: 0px;
-	margin-left: 41.5%;
-	margin-rig: 0%;
-	font-family: sans-serif;
-	word-wrap: break-word;
-}
+	.section2 .section2Content {
+		padding: 0px;
+		margin-left: 41.5%;
+		margin-rig: 0%;
+		font-family: sans-serif;
+		word-wrap: break-word;
+	}
+
+	.section2 a:hover {
+		text-decoration: underline;
+	}
+
+/*
 .section2 .btn {
   background-color: #ddd;
   border: 2px solid #CEB5B5;
-  border-radius: 5px; /* 添加圆角 */
+  border-radius: 5px;
   color: black;
   padding: 10px 20px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
-  display: inline-block; /* 让a标签表现得像一个按钮 */
-  text-decoration: none; /* 移除a标签的下划线 */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* 过渡效果 */
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .section2 .btn:hover {
   background-color: #3e8e41;
   color: white;
-  text-decoration: none; /* 确保悬停时不会出现下划线 */
-  box-shadow: 0 5px 15px rgba(62, 142, 65, 0.4); /* 放大阴影并更改颜色 */
-  /* 为悬停状态添加一个动画 */
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(62, 142, 65, 0.4);
   animation: lightning 0.5s linear infinite;
 }
+*/
+	.section2 .btn-contaniner{
+		box-sizing:border-box;
+		font-family: 'Roboto',sans-serif;
+		display: flex; /* 使用 Flexbox 排列按钮 */
+	    justify-content: center; /* 水平居中按钮 */
+	    align-items: center; /* 垂直居中按钮 */
+	    flex-wrap: nowrap; /* 是否允许按钮根据需要换行 */
+		transform: scale(0.9);
+	}
+	.section2 .btn-contaniner .btn {
+		position: relative;
+		width:155px;
+		height: 50px;
+		margin:20px;
+	}
+	.section2 .btn-contaniner .btn a{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: rgba(255,255,255,0.05);
+		box-shadow: 0 15px 35px  rgba(0,0,0,0.2);
+		border-top: 1px solid  rgba(255,255,255,0.1);
+		border-bottom: 1px solid  rgba(255,255,255,0.1);
+		border-radius: 50px;
+		color: #fff;
+		z-index: 1;
+		font-weight: 400;
+		letter-spacing: 1px;
+		text-decoration: none;
+		overflow: hidden;
+		transition: 0.5s;
+		backdrop-filter: blur(15px);
+	}
+	.section2 .btn-contaniner .btn:hover a{
+		letter-spacing: 3px;
+	}
+	.section2 .btn-contaniner .btn a::before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		height: 100%;
+		background: linear-gradient(to left,rgba(255,255,255,0.15),transparent);
+		transform: skewX(45deg) translateX(0);
+		transition: 0.5s;
+	}
+	.section2 .btn-contaniner .btn:hover a::before{
+		transform: skewX(45deg) translateX(200%);
+	}
+	.section2 .btn-contaniner .btn:before{
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -5px;
+		width:30px;
+		height:10px;
+		background: #f00;
+		border-radius:10px;
+		transition:0.5s;
+		transition-delay:0s;
+	}
+	.section2 .btn-contaniner .btn:hover::before{
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+		width:80%;
+		height:50%;
+		background: #f00;
+		border-radius:30px;
+		transition-delay:0.5s;
+	}
+	.section2 .btn-contaniner .btn:after{
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: -5px;
+		width:30px;
+		height:10px;
+		background: #f00;
+		border-radius:10px;
+		transition:0.5s;
+		transition-delay:0s;
+	}
+	.section2 .btn-contaniner .btn:hover::after{
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+		width:80%;
+		height:50%;
+		background: #f00;
+		border-radius:30px;
+		transition-delay:0.5s;
+	}
+	.section2 .btn-contaniner .btn:nth-child(1)::before,
+	.section2 .btn-contaniner .btn:nth-child(1)::after{
+		background: #ff1f71;
+		box-shadow: 0 0 5px #ff1f71,
+			0 0 15px #ff1f71,
+			0 0 30px #ff1f71,
+			0 0 60px #ff1f71;
+	}
+	.section2 .btn-contaniner .btn:nth-child(2)::before,
+	.section2 .btn-contaniner .btn:nth-child(2)::after{
+		background: #2bd2ff;
+		box-shadow: 0 0 5px #2bd2ff,
+			0 0 15px #2bd2ff,
+			0 0 30px #2bd2ff,
+			0 0 60px #2bd2ff;
+	}
+	.section2 .btn-contaniner .btn:nth-child(3)::before,
+	.section2 .btn-contaniner .btn:nth-child(3)::after{
+		background: #1eff45;
+		box-shadow: 0 0 5px #1eff45,
+			0 0 15px #1eff45,
+			0 0 30px #1eff45,
+			0 0 60px #1eff45;
+	}
+
 
 .mainContent .externalResourcesNav {
 	margin-top: 40px;
@@ -545,6 +867,28 @@ footer .footerNote {
 	margin-right: 3%;
 	font-family: sans-serif;
 }
+footer .hr{
+	background-color: rgba(15,76,129,0.40);
+	height: 1.0px;
+	padding: 0px;
+/*	margin-bottom: 25px;*/
+}
+}
+/* image-track */
+#image-track {
+ 	display: flex;
+ 	gap: 4vmin;
+ 	position: absolute;
+	left: 50%;
+ 	transform: translate(0%, -50%); 
+ 	user-select: none;
+}
+
+#image-track > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
 }
 
 #citation-modal {

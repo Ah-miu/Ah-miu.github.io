@@ -1,87 +1,130 @@
-/*------------- show ---------------*/
-// 使用querySelectorAll选择所有.newPaper元素，并遍历它们
-document.querySelectorAll('.newPaper').forEach(function(newPaper) {
-  // 为每个.newPaper添加mouseenter事件监听器
-  newPaper.addEventListener('mouseenter', function() {
-    this.querySelector('.staticImage').style.display = 'none';
-    this.querySelector('.animatedGif').style.display = 'block';
+document.addEventListener('DOMContentLoaded', (event) => {
+  // 交互显示功能
+  document.querySelectorAll('.newPaper').forEach(newPaper => {
+    newPaper.addEventListener('mouseenter', () => {
+      newPaper.querySelector('.staticImage').style.display = 'none';
+      newPaper.querySelector('.animatedGif').style.display = 'block';
+    });
+    newPaper.addEventListener('mouseleave', () => {
+      newPaper.querySelector('.staticImage').style.display = 'block';
+      newPaper.querySelector('.animatedGif').style.display = 'none';
+    });
   });
 
-  // 为每个.newPaper添加mouseleave事件监听器
-  newPaper.addEventListener('mouseleave', function() {
-    this.querySelector('.staticImage').style.display = 'block';
-    this.querySelector('.animatedGif').style.display = 'none';
-  });
-});
-
-/*------------- cite ---------------*/
-//document.addEventListener('DOMContentLoaded', (event) => {
+  // 引用复制功能_旧
 //  const citeButtons = document.querySelectorAll('.cite-btn');
 //  const citationModal = document.getElementById('citation-modal');
 //  const citationContent = document.getElementById('citation-content');
 //  const copyCitationBtn = document.getElementById('copy-citation');
 //
-//  // 给每个引用按钮添加点击事件
 //  citeButtons.forEach(button => {
-//    button.addEventListener('click', function() {
-//      const citation = this.getAttribute('data-citation');
-//      citationContent.textContent = citation.replace(/,\s/g, ",\n"); // 替换逗号后面的空格为换行，格式化显示
-//      citationModal.style.display = 'block'; // 显示引用弹窗
+//    button.addEventListener('click', () => {
+//	  event.preventDefault();
+//      citationContent.innerHTML = button.getAttribute('data-citation');
+//      citationModal.style.display = 'block';
 //    });
 //  });
 //
-//  // 复制引用内容到剪切板
-//  copyCitationBtn.addEventListener('click', function() {
-//    navigator.clipboard.writeText(citationContent.textContent).then(() => {
-//      // 提示复制成功或关闭弹窗
+//  copyCitationBtn.addEventListener('click', () => {
+//    const dummyDiv = document.createElement("div");
+//    dummyDiv.innerHTML = citationContent.innerHTML;
+//    const textToCopy = dummyDiv.textContent || dummyDiv.innerText;
+//    navigator.clipboard.writeText(textToCopy).then(() => {
 //      console.log('Citation copied to clipboard');
+//      citationModal.style.display = 'none';
+//    }).catch(err => {
+//      console.error('Error copying text: ', err);
 //    });
 //  });
 //
-//  // 点击弹窗外任何地方关闭弹窗
-//  window.addEventListener('click', function(e) {
-//    if (!citationModal.contains(e.target) && !e.target.classList.contains('cite-btn')) {
+//  window.addEventListener('click', e => {
+//    if (!citationModal.contains(e.target) && e.target.className.indexOf('cite-btn') === -1) {
 //      citationModal.style.display = 'none';
 //    }
 //  });
-//});
-document.addEventListener('DOMContentLoaded', (event) => {
-  const citeButtons = document.querySelectorAll('.cite-btn');
-  const citationModal = document.getElementById('citation-modal');
-  const citationContent = document.getElementById('citation-content');
-  const copyCitationBtn = document.getElementById('copy-citation');
+	document.querySelectorAll('.cite-btn').forEach(button => {
+	  button.addEventListener('click', function(event) {
+		event.preventDefault(); // 阻止链接默认行为
+		const citationText = this.getAttribute('data-citation').replace(/<br>/g, '\n'); // 将 <br> 替换为换行符
+		navigator.clipboard.writeText(citationText).then(() => {
+		  // 显示复制成功消息
+		  const confirmation = document.getElementById('copy-confirmation');
+		  confirmation.style.display = 'block';
+		  setTimeout(() => { confirmation.style.display = 'none'; }, 2000); // 2秒后隐藏消息
+		}).catch(err => {
+		  console.error('Error copying text: ', err);
+		});
+	  });
+	});
 
-  // 给每个引用按钮添加点击事件
-  citeButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const citationRaw = this.getAttribute('data-citation');
-      citationContent.innerHTML = citationRaw; // 直接设置 innerHTML，<br> 用于换行
-      citationModal.style.display = 'block'; // 显示引用弹窗
-    });
+	
+
+
+  // 悬浮窗显示功能
+  const wechatButton = document.querySelector(".list a[href='#wetchat']");
+  const wechatModal = document.getElementById("wechat-modal");
+  const closeBtn = wechatModal.querySelector(".close");
+
+  wechatButton.addEventListener('click', () => {
+    wechatModal.style.display = "block";
   });
 
-  // 复制引用内容到剪切板
-  copyCitationBtn.addEventListener('click', function() {
-    // 创建一个虚拟元素以转换 HTML 为文本
-    let dummyDiv = document.createElement("div");
-    dummyDiv.innerHTML = citationContent.innerHTML;
-    const textToCopy = dummyDiv.textContent || dummyDiv.innerText;
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      console.log('Citation copied to clipboard');
-      citationModal.style.display = 'none'; // 关闭弹窗
-    }).catch(err => {
-      console.error('Error copying text: ', err);
-    });
+  closeBtn.addEventListener('click', () => {
+    wechatModal.style.display = "none";
   });
 
-  // 点击弹窗外任何地方关闭弹窗
-  window.addEventListener('click', function(e) {
-    if (!citationModal.contains(e.target) && e.target.className.indexOf('cite-btn') === -1) {
-      citationModal.style.display = 'none';
+  window.addEventListener('click', e => {
+    if (e.target === wechatModal) {
+      wechatModal.style.display = "none";
     }
   });
+	
+// gallery
+	const track = document.getElementById("image-track");
+
+	const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
+	const handleOnUp = () => {
+	  track.dataset.mouseDownAt = "0";  
+	  track.dataset.prevPercentage = track.dataset.percentage;
+	}
+
+	const handleOnMove = e => {
+	  if(track.dataset.mouseDownAt === "0") return;
+
+	  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+			maxDelta = window.innerWidth / 2;
+
+	  const percentage = (mouseDelta / maxDelta) * -100,
+			nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+			nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+	  track.dataset.percentage = nextPercentage;
+
+	  track.animate({
+		transform: `translate(${nextPercentage}%, -50%)`
+	  }, { duration: 1200, fill: "forwards" });
+
+	  for(const image of track.getElementsByClassName("image")) {
+		image.animate({
+		  objectPosition: `${100 + nextPercentage}% center`
+		}, { duration: 1200, fill: "forwards" });
+	  }
+	}
+
+	/* -- Had to add extra lines for touch events -- */
+
+	window.onmousedown = e => handleOnDown(e);
+
+	window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+	window.onmouseup = e => handleOnUp(e);
+
+	window.ontouchend = e => handleOnUp(e.touches[0]);
+
+	window.onmousemove = e => handleOnMove(e);
+
+	window.ontouchmove = e => handleOnMove(e.touches[0]);
 });
-
-
 
 
