@@ -142,7 +142,7 @@ header .profileHeader hr{
 
 header .profileHeader p {
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 1.8;
     color: #494A81;
@@ -448,7 +448,7 @@ footer .footerDisclaimer {
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 18px;
-	color: rgba(104,103,103,1.00);
+	color: rgba(225,111,97,1.00);
 	font-weight: 700;
 }
 footer .footerDisclaimer span {
@@ -459,7 +459,7 @@ footer .footerNote {
 	font-family: sans-serif;
 	font-size: 14px;
 	line-height: 18px;
-	color: rgba(104,103,103,1.00);
+	color: rgba(225,111,97,1.00);
 	font-weight: 700;
 }
 footer .footerNote span {
@@ -572,7 +572,7 @@ footer {
 @media only screen {
 	/* Header */
 	header {
-		padding-top: 10%;	
+		margin-top: -3%;	
 	}
 	header .profileLogo .logoPlaceholder {
 		float: left;
@@ -582,10 +582,11 @@ footer {
 		float: left;
 		clear: both;
 		margin-right: 3%;
+		padding-top: -5%;
 	}
 	header .profileHeader {
 		text-align: left;
-		padding-top: 0%;
+		padding-top: 5%;
 	}
 	/* Main content sections */
 	.section1 .sectionTitleRule{
