@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jinghan Ke's personal homepage</title>
+	<link rel="icon" href="AboutPageAssets/images/K.png" type="image/x-icon">
 <link href="AboutPageAssets/styles/aboutPageStyle.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -15,6 +16,11 @@
 </head>
 
 <body>
+<!-- Scroll -->
+<!--
+<div id="progressbar"></div>
+<div id="scrollPath"></div>
+-->
 <!-- Header content -->
 <header>
 <!--
@@ -173,23 +179,24 @@
 </section>
 <br><br>
 
-<section class="gallery">
 	<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-	  <img class="image" src="AboutPageAssets/images/gallery/1.png" draggable="false" />
+	  <img class="image" src="AboutPageAssets/images/gallery/1.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/2.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/3.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/4.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/5.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/6.png" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/7.png" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/6.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/7.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/8.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/9.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/10.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/11.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/12.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/11.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/13.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/14.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/15.jpg" draggable="false" />
+<!--		<img class="image" src="AboutPageAssets/images/gallery/haha.jpg" draggable="false" />-->
 	</div>
-</section>
 
 
 <footer>
@@ -204,6 +211,16 @@
   <div id="citation-content"></div>
   <button id="copy-citation">Copy</button>
 </div>
+-->
+<!--
+<script type="text/javascript">
+	let progress = document.getElementById('progressbar');
+	let totalHeight = document.body.scrollHeight - window.innerHeight;
+	window.onscroll = function(){
+		let progressHeight = (window.pageYOffset / totalHeight) * 100;
+		progress.style.height = progressHeight + "%";
+	}
+</script>
 -->
 	
 <script>
