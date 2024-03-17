@@ -105,16 +105,39 @@ header .logoPlaceholder span {
 
 /* Profile photo styles */
 header .profilePhoto {
-    background-color: rgba(237,237,237,1.00);
-    width: 259px;
-    height: 259px;
+  background-color: rgba(237, 237, 237, 1);
+  width: 259px;
+  height: 259px;
+  position: relative; /* 重要：添加相对定位 */
 }
 
 header .profilePhoto img {
-    width: 259px;
-    height: 259px;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  position: absolute; /* 重要：添加绝对定位 */
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
 }
+
+header .profilePhoto .default-image {
+  opacity: 1;
+}
+
+header .profilePhoto .hover-image {
+  opacity: 0;
+}
+
+header .profilePhoto:hover .default-image {
+  opacity: 0;
+}
+
+header .profilePhoto:hover .hover-image {
+  opacity: 1;
+}
+
 
 /* Profile header styles */
 header .profileHeader h1 {
@@ -145,17 +168,12 @@ header .profileHeader p {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.8;
-    color: #494A81;
+/*    color: #494A81;*/
+	color: black;
     overflow-y: auto;
 }
 
 /* Profile links styles */
-/*
-header .profileLinks p {
-    margin: 10px 0;
-    display: block;
-}
-*/
 header .profileLinks{
 	position:relative;
 	width:320px;
@@ -165,7 +183,7 @@ header .profileLinks{
 	justify-content: center;
 	align-items: center;
 	border-radius:10px;
-	transform: translateX(-55px);
+	transform: translateX(-55px) translateY(240px);
 }
 header .profileLinks ul {
     width: 350px;
@@ -292,9 +310,9 @@ header .profileContainer .modal-content {
 }
 
 header .profileContainer .modal-content img {
-  max-width: 100%; /* 图片最大宽度为容器宽度 */
-  max-height: 100%; /* 图片最大高度为容器高度 */
-  object-fit: contain; /* 调整图片以适应容器 */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 
@@ -646,13 +664,13 @@ footer {
 		  height: 222px;
 		  max-width: 100%;
 		  max-height: 100%;
-		  object-fit: contain; /* 保持长宽比 */
+		  object-fit: contain;
 		  border: 3px solid #555;
 		  display: block;
 	}
 	.section2 .showPlace {
 	  float: left;
-	  line-height: 0; /* 防止图片下方出现空隙 */
+	  line-height: 0;
 	}
 		.section2 .showPlace img {
 			border-radius: 25px;
@@ -662,7 +680,7 @@ footer {
 		  height: 222px;
 		  max-width: 100%;
 		  max-height: 100%;
-		  object-fit: contain; /* 保持长宽比 */
+		  object-fit: contain;
 		  border: 3px solid #555;
 		  display: block;
 		}
@@ -873,6 +891,14 @@ footer {
   }
 }
 */
+#MathNAS {
+  background-image: url('../images/gallery/Emei Mountain.jpg');
+  background-size: cover;
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+}
+
+/*gallery自动滑动有bug*/
 @keyframes slideToLeft {
   0%, 100% {
     transform: translate(0%, -50%);
@@ -886,10 +912,10 @@ footer {
  	display: flex;
  	gap: 4vmin;
  	position: absolute;
-	left: 50%;
+	left: 30%; /*调整第一张初始位置*/
  	transform: translate(0%, -50%); 
  	user-select: none;
-	animation: slideToLeft 60s linear infinite;
+/*	animation: slideToLeft 60s linear infinite;*/
 }
 
 #image-track > .image {
@@ -905,23 +931,23 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f8f9fa; /* 一个温和的灰色背景 */
-  border-radius: 10px; /* 圆角边框 */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加阴影以提高层次感 */
-  width: 80%; /* 或者根据内容大小设定固定宽度 */
-  max-width: 600px; /* 最大宽度，避免在大屏幕上过宽 */
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 600px;
   padding: 20px;
   z-index: 1000;
-  box-sizing: border-box; /* 避免内边距影响宽度计算 */
+  box-sizing: border-box;
 }
 
 #citation-content {
   margin-bottom: 20px; /* 给复制按钮留出空间 */
   padding: 10px;
-  background-color: #ffffff; /* 白色背景强调内容 */
-  border: 1px solid #ddd; /* 边框定义内容区域 */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   overflow: auto; /* 长文本滚动 */
-  max-height: 300px; /* 最大高度，超出滚动 */
+  max-height: 300px;
 }
 
 #copy-citation {
@@ -951,85 +977,3 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
-
-/* Media Query for Tablets */
-/*
-@media only screen and (min-width : 481px) and (max-width : 1024px) {
-
-header {
-	width: 100%;
-	float: none;
-}
-header .profileLogo .logoPlaceholder {
-	display: inline-block;
-	font-family: 'Montserrat', sans-serif;
-}
-header .profilePhoto {
-	float: left;
-	clear: both;
-	margin-right: 3%;
-	margin-top: 5%;
-}
-header .profileHeader {
-	text-align: left;
-	margin-top: 7%;
-}
-header .socialNetworkNavBar .socialNetworkNav {
-	width: 74px;
-	height: 74px;
-	display: inline-block;
-	margin-right: 23px;
-}
-
-.section1 .section1Title, .section2 .section1Title {
-	text-align: center;
-}
-.section1 .sectionTitleRule, .section2 .sectionTitleRule {
-	width: 100%;
-}
-.section1 .sectionTitleRule2, .section2 .sectionTitleRule2 {
-	display: none;
-}
-.mainContent .section1 .section1Content {
-	display: block;
-	margin: 0% 0% 0% 20%;
-	font-family: sans-serif;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-.mainContent .section2 {
-	clear: both;
-}
-.section2 .section2Content {
-	padding: 0px;
-	margin-left: 20%;
-	font-family: sans-serif;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-.mainContent .externalResourcesNav {
-	margin-left: 20%;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	text-align: center;
-	padding-top: 0px;
-	clear: both;
-}
-.mainContent .externalResourcesNav .externalResources {
-	width: 199px;
-	height: 48px;
-	margin-top: 5%;
-}
-
-footer .footerDisclaimer {
-	float: left;
-	margin-left: 3%;
-	font-family: sans-serif;
-}
-footer .footerNote {
-	float: right;
-	margin-right: 3%;
-	font-family: sans-serif;
-}
-}*/

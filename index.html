@@ -29,21 +29,13 @@
   </div>
 -->
 	<div class="profileContainer">
-	  <div class="profilePhoto"> 
-		<!-- Profile photo --> 
-		<img src="AboutPageAssets/images/小象-259.jpg" alt="sample"> 
-		<!--	<p class="profileCaption">&nbsp;</p>-->
-		  	
+	  <div class="profilePhoto">
+			<img src="AboutPageAssets/images/super-yeah.jpg" class="default-image" >
+		    <img src="AboutPageAssets/images/super-me.png" class="hover-image">
 			<div class="profileLinks">
-<!--
-				<p><a href="mailto:jinghan@mail.ustc.edu.cn" target="_blank"><i class="fas fa-envelope"></i> Email</a></p>
-				<p><a href="path-to-your-cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a></p>
-				<p><a href="https://github.com/Ah-miu" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
-				<p><a href=""><i class="fab fa-twitter" target="_blank"></i> Twitter</a></p>
--->
 				<ul>
 					<li class="list active">
-						<a href="AboutPageAssets/files/JinghanKe-CV.pdf" target="_blank">
+						<a href="" target="_blank">
 							<span class="icon">
 								<ion-icon name="document-outline"></ion-icon>
 							</span>
@@ -51,12 +43,13 @@
 						</a>
 					</li>
 					<li class="list">
-						<a href="mailto:jinghan@mail.ustc.edu.cn">
-							<span class="icon">
-								<ion-icon name="mail-outline"></ion-icon>
-							</span>
-							<span class="icon-text">Email</span>
-						</a>
+					  <a href="#" id="emailLink">
+						<span class="icon">
+						  <ion-icon name="mail-outline"></ion-icon>
+						</span>
+						<span class="icon-text">Email</span>
+					  </a>
+					  <span id="copied" style="display: none;">copied</span>
 					</li>
 					<li class="list">
 						<a href="#wetchat" >
@@ -87,28 +80,28 @@
 	  <!-- Identity details -->
 	  <section class="profileHeader">
 		<h1>Jinghan Ke&nbsp;</h1>
-<!--		<h3>HAHAHAHAHA</h3>-->
 		<hr>
-		<p>I am a senior student at the School of Computer Science and Technology (<strong>CS</strong>), University of Science and Technology of China (<a href="https://en.ustc.edu.cn/" class="prof-link" target="_blank">USTC</a>). My research interests are in broadly in human-AI/robot interaction, machine learning, and robotics.</p>
-		<p>Nowadays I work as Research Assistant at NUS LinS Lab with <a href="https://linsats.github.io" class="prof-link" target="_blank">Prof. Lin Shao</a>. At the same time, I'm working with the CLeAR Lab led by <a href="https://haroldsoh.com/" class="prof-link" target="_blank">Prof. Harold Soh</a> of NUS.</p>
-		<p>Currently, I'm particularly interested in developing algorithms and systems to provide robots with the abilities of perception and manipulation.</p>
+		<p>I am a senior student at the School of Computer Science and Technology (<strong>CS</strong>), University of Science and Technology of China (<a href="https://en.ustc.edu.cn/" class="prof-link" target="_blank">USTC</a>).</p>
+		<p>Previously, I worked at NUS LinS Lab with <a href="https://linsats.github.io" class="prof-link" target="_blank">Prof. Lin Shao</a>, where I developed algorithms and systems to provide robots with the abilities of perception and manipulation.</p>
 	  </section>
-	  
+	</div>
+	<div>
+		
 	</div>
 </header>
-
+	
 <section class="scroll-show-container">
   <a href="https://sites.google.com/view/diff-lfd/" target="_blank">
     <img src="AboutPageAssets/images/gif-show/teapot.gif" alt="Teapot">
   </a>
-  <img src="AboutPageAssets/images/gif-show/VR-treadmill.gif" alt="VR Treadmill">
+<!--  <img src="AboutPageAssets/images/gif-show/VR-treadmill.gif" alt="VR Treadmill">-->
   <a href="https://github.com/Ah-miu/Feng" target="_blank">
     <img src="AboutPageAssets/images/gif-show/FENG.gif" alt="FENG">
   </a>
   <a href="https://github.com/OSH-2022/x-WowKiddy" target="_blank">
     <img src="AboutPageAssets/images/gif-show/WowKiddy.gif" alt="WowKiddy">
   </a>
-  <img src="AboutPageAssets/images/手偶舞.gif" alt="Hand Puppet Dance">
+  <img src="AboutPageAssets/images/gif-show/手偶舞.gif" alt="Hand Puppet Dance">
 </section>
 
 	
@@ -119,7 +112,6 @@
     <h2 class="sectionTitle">News&nbsp;</h2>
 	<hr class="sectionTitleRule">
     <div class="section1Content">
-	  <p><span><span class="icon">								<ion-icon name="musical-notes-outline"></ion-icon></span> [ Nov 2023 ] : </span> I am currently looking for a Ph.D. position (2024 Fall).</p>
 	  <p><span><span class="icon">								<ion-icon name="musical-notes-outline"></ion-icon></span> [ Sep 2023 ] : </span> MathNAS was accepted by NeurIPS 2023.</p>
 	  <p><span><span class="icon">								<ion-icon name="musical-notes-outline"></ion-icon></span> [ Aug 2023 ] : </span> Diff-LfD was accepted by CoRL 2023 as Oral (6.6%).</p>
 	  <p><span><span class="icon">								<ion-icon name="musical-notes-outline"></ion-icon></span> [ 26 Oct 2022 ] : </span> Joined the LinS lab at NUS and started doing research.</p>
@@ -139,12 +131,12 @@
 		  </div>
 -->
 		  <div class="showPlace">
-			<img class="staticImage" src="AboutPageAssets/images/img-show/MathNAS-1.png" alt="sample">
-    		<img class="animatedGif" src="AboutPageAssets/images/img-show/MathNAS-2.png" alt="sample" style="display:none;">
+			<img class="staticImage" src="AboutPageAssets/images/img-show/MathNAS-1.jpg">
+    		<img class="animatedGif" src="AboutPageAssets/images/img-show/MathNAS-2.png" style="display:none;">
 		  </div>
 		  <article class="section2Content">
-		    <h2 class="sectionContentTitle">MathNAS: If Blocks Have a Role in Mathematical  Architecture Design</h2>
-			  <h3 class="sectionContentSubTitle"><a href="https://wangqinsi1.github.io/" target="_blank">Wang Qinsi*</a>, <strong style="color: rgb(246,251,255);">Jinghan Ke*</strong>, Zhi Liang</h3>
+		    <h2 class="sectionContentTitle" >MathNAS: If Blocks Have a Role in Mathematical  Architecture Design</h2>
+			  <h3 class="sectionContentSubTitle"><a href="https://wangqinsi1.github.io/" target="_blank">Wang Qinsi*</a>, <strong style="color: rgb(246,251,255);">Jinghan Ke*</strong>, ... (* indicate equal contribution)</h3>
 			  	<h4 class="sectionContentSubTitle">Neural Information Processing Systems (<strong>NeurIPS</strong>) 2023</h4>
 			  <div class="btn-contaniner">
 				  <div class="btn"><a href="https://openreview.net/pdf?id=e1l4ZYprQH" target="_blank">PDF</a></div>
@@ -161,7 +153,7 @@
 		  </div>
 		  <article class="section2Content">
 		    <h2 class="sectionContentTitle">Diff-LfD: Contact-aware Model-based Learning from Visual Demonstration for Robotic Manipulation via Differentiable Physics-based Simulation and Rendering&nbsp;</h2>
-			  <h3 class="sectionContentSubTitle"><a href="https://rolandzhu.github.io/" target="_blank">Xinghao Zhu</a>, <strong style="color: rgb(246,251,255);">Jinghan Ke</strong>, <a href="https://ariszxxu.github.io/" target="_blank">Zhixuan Xu</a>, Zhixin Sun, Bizhe Bai, Jun Lv, Qingtao Liu, Yuwei Zeng, Qi Ye, Cewu Lu, Masayoshi Tomizuka, <a href="https://linsats.github.io" target="_blank">Lin Shao</a></h3>
+			  <h3 class="sectionContentSubTitle"><a href="https://rolandzhu.github.io/" target="_blank">Xinghao Zhu</a>, <strong style="color: rgb(246,251,255);">Jinghan Ke</strong>, <a href="https://ariszxxu.github.io/" target="_blank">Zhixuan Xu</a>, <a href="https://applewonder.github.io/" target="_blank">Zhixin Sun</a>, <a href="https://baibizhe.github.io/" target="_blank">Bizhe Bai</a>, <a href="https://lyuj1998.github.io/" target="_blank">Jun Lv</a>, ..., <a href="https://www.mvig.org/" target="_blank">Cewu Lu</a>, <a href="https://me.berkeley.edu/people/masayoshi-tomizuka/" target="_blank">Masayoshi Tomizuka</a>, <a href="https://linsats.github.io" target="_blank">Lin Shao</a></h3>
 			  	<h4 class="sectionContentSubTitle">Conference on Robot Learning (<strong>CoRL</strong>) 2023, <strong style="color: rgb(255,232,108); font-size: 135%;font-style: italic;">Oral</strong></h4>
 			  <div class="btn-contaniner">
 				  <div class="btn"><a href="https://openreview.net/pdf?id=DYPOvNot5F" target="_blank">PDF</a></div>
@@ -172,7 +164,6 @@
 					booktitle={Conference on Robot Learning (CoRL)},
 					year={2023}}"><a href="javascript:void(0);">Cite</a></div>
 					<div id="copy-confirmation" style="display:none; color: white;">Citation copied to clipboard!</div>
-<!--			  	  <button class="btn cite-btn" data-citation="@inproceedings{Zhu2023DiffLfD,<br>title={Diff-LfD: Contact-aware Model-based Learning from Visual Demonstration for Robotic Manipulation via Differentiable Physics-based Simulation and Rendering},<br>author={Zhu, Xinghao and Ke, Jinghan and Xu, Zhixuan and Sun, Zhixin and Bai, Bizhe and Lv, Jun and Liu, Qingtao and Zeng, Yuwei and Ye, Qi and Lu, Cewu and Tomizuka, Masayoshi and Shao, Lin},<br>booktitle={Conference on Robot Learning (CoRL)},<br>year={2023}<br>}">Cite</button>-->
 		 		</div>
 				  </article>
 		</div>
@@ -181,21 +172,26 @@
 <br><br>
 
 	<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-	  <img class="image" src="AboutPageAssets/images/gallery/1.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/2.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/3.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/4.jpg" draggable="false" />
+		<h2 class="sectionTitle">Drag Left <- </h2>
+	    <img class="image" src="AboutPageAssets/images/gallery/1.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/5.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/Xijiang thousand familly Miao village.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/4.jpg" draggable="false" />
+<!--
 		<img class="image" src="AboutPageAssets/images/gallery/6.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/7.jpg" draggable="false" />
+-->
 		<img class="image" src="AboutPageAssets/images/gallery/8.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/9.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/Emei Mountain.jpg" draggable="false" />
+<!--		<img class="image" src="AboutPageAssets/images/gallery/9.jpg" draggable="false" />-->
 		<img class="image" src="AboutPageAssets/images/gallery/10.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/12.jpg" draggable="false" />
-		<img class="image" src="AboutPageAssets/images/gallery/11.jpg" draggable="false" />
+<!--		<img class="image" src="AboutPageAssets/images/gallery/11.jpg" draggable="false" />-->
 		<img class="image" src="AboutPageAssets/images/gallery/13.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/14.jpg" draggable="false" />
 		<img class="image" src="AboutPageAssets/images/gallery/15.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/3.jpg" draggable="false" />
+		<img class="image" src="AboutPageAssets/images/gallery/2.jpg" draggable="false" />
 <!--		<img class="image" src="AboutPageAssets/images/gallery/haha.jpg" draggable="false" />-->
 	</div>
 

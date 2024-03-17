@@ -11,37 +11,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   });
 
-  // 引用复制功能_旧
-//  const citeButtons = document.querySelectorAll('.cite-btn');
-//  const citationModal = document.getElementById('citation-modal');
-//  const citationContent = document.getElementById('citation-content');
-//  const copyCitationBtn = document.getElementById('copy-citation');
-//
-//  citeButtons.forEach(button => {
-//    button.addEventListener('click', () => {
-//	  event.preventDefault();
-//      citationContent.innerHTML = button.getAttribute('data-citation');
-//      citationModal.style.display = 'block';
-//    });
-//  });
-//
-//  copyCitationBtn.addEventListener('click', () => {
-//    const dummyDiv = document.createElement("div");
-//    dummyDiv.innerHTML = citationContent.innerHTML;
-//    const textToCopy = dummyDiv.textContent || dummyDiv.innerText;
-//    navigator.clipboard.writeText(textToCopy).then(() => {
-//      console.log('Citation copied to clipboard');
-//      citationModal.style.display = 'none';
-//    }).catch(err => {
-//      console.error('Error copying text: ', err);
-//    });
-//  });
-//
-//  window.addEventListener('click', e => {
-//    if (!citationModal.contains(e.target) && e.target.className.indexOf('cite-btn') === -1) {
-//      citationModal.style.display = 'none';
-//    }
-//  });
 	document.querySelectorAll('.cite-btn').forEach(button => {
 	  button.addEventListener('click', function(event) {
 		event.preventDefault(); // 阻止链接默认行为
@@ -79,7 +48,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 	
-// gallery
+	// gallery
 	const track = document.getElementById("image-track");
 
 	const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
@@ -125,6 +94,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	window.onmousemove = e => handleOnMove(e);
 
 	window.ontouchmove = e => handleOnMove(e.touches[0]);
+	
+	// for email
+	document.getElementById('emailLink').addEventListener('click', function(event) {
+	  event.preventDefault();
+	  const email = 'jinghan@mail.ustc.edu.cn';
+
+	  navigator.clipboard.writeText(email)
+		.then(() => {
+		  console.log('Email copied to clipboard');
+		  const copiedSpan = document.getElementById('copied');
+		  copiedSpan.style.display = 'inline';
+		  setTimeout(() => {
+			copiedSpan.style.display = 'none';
+		  }, 2000);
+		})
+		.catch((error) => {
+		  console.error('Failed to copy email: ', error);
+		});
+	});
+	
+	
 });
 
 
