@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	// for email
 	document.getElementById('emailLink').addEventListener('click', function(event) {
 	  event.preventDefault();
-	  const email = 'jinghan@mail.ustc.edu.cn';
+	  const email = 'hi.jinghan@gmail.com';
 
 	  navigator.clipboard.writeText(email)
 		.then(() => {
