@@ -29,24 +29,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	
 
 
-  // 悬浮窗显示功能
-  const wechatButton = document.querySelector(".list a[href='#wetchat']");
-  const wechatModal = document.getElementById("wechat-modal");
-  const closeBtn = wechatModal.querySelector(".close");
-
-  wechatButton.addEventListener('click', () => {
-    wechatModal.style.display = "block";
-  });
-
-  closeBtn.addEventListener('click', () => {
-    wechatModal.style.display = "none";
-  });
-
-  window.addEventListener('click', e => {
-    if (e.target === wechatModal) {
-      wechatModal.style.display = "none";
-    }
-  });
+//  // 悬浮窗显示功能
+//  const wechatButton = document.querySelector(".list a[href='#wetchat']");
+//  const wechatModal = document.getElementById("wechat-modal");
+//  const closeBtn = wechatModal.querySelector(".close");
+//
+//  wechatButton.addEventListener('click', () => {
+//    wechatModal.style.display = "block";
+//  });
+//
+//  closeBtn.addEventListener('click', () => {
+//    wechatModal.style.display = "none";
+//  });
+//
+//  window.addEventListener('click', e => {
+//    if (e.target === wechatModal) {
+//      wechatModal.style.display = "none";
+//    }
+//  });
 	
 	// gallery
 	const track = document.getElementById("image-track");
