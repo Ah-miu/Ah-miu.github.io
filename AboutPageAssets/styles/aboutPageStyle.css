@@ -336,6 +336,7 @@ header .profileContainer {
     gap: 15px;
 }
 
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* Scroll show container styles */
 .scroll-show-container {
     background-color: #ffffff;
@@ -360,6 +361,7 @@ header .profileContainer {
     transform: scale(1.1);
 }
 
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* News Content section */
 .mainContent .section1 {
 	display: block;
@@ -397,6 +399,8 @@ header .profileContainer {
 	font-weight: bold;
 	font-size: 1.2em;
 }
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* Pubulications Content section */
 .section2  a {
     color: #555;
@@ -455,6 +459,132 @@ header .profileContainer {
 	margin-right: 2%;
 }
 
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* 容器：Flex 左右布局 */
+.mainContent .section2 .yt-shell {
+      /* 主题与尺寸可按需改 */
+  --gap: 16px;
+  --radius: 16px;
+  --panel: #000;
+  --card: #0f1220;
+  --border: rgba(255,255,255,.06);
+  --accent: rgba(96,165,250,.14);
+  --text: #eef2f7;
+  --muted: rgba(255,255,255,.7);
+  --block-height: 400px;       /* 参照你的 demo：整块高度 400px */
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap);
+  max-width: 1200px;
+  margin: 24px auto;
+  color: var(--text);
+}
+
+/* 重要：Flex 子项默认 min-height:auto，会撑开；需要可收缩 */
+.mainContent .section2 .yt-shell > * { min-height: 0; }
+
+/* 左侧清单：固定列宽 + 内部滚动 */
+.mainContent .section2 .yt-playlist {
+  flex: 0 0 320px;             /* 固定 320px，可改 280–360 */
+  height: var(--block-height); /* 和右侧一致的高度 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* 清单项 */
+.mainContent .section2 .yt-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+.mainContent .section2 .yt-item:hover { background: rgba(255,255,255,.04); }
+.mainContent .section2 .yt-item.active { background: var(--accent); }
+.mainContent .section2 .yt-item img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.mainContent .section2 .yt-meta h4 { font-size: 14px; margin: 0 0 6px; }
+.mainContent .section2 .yt-meta .sub { font-size: 12px; color: var(--muted); }
+
+/* 右侧播放器：与左侧同高，内部绝对铺满 */
+.mainContent .section2 .yt-player-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  height: var(--block-height);
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.mainContent .section2 .yt-player {
+  position: absolute;
+  inset: 0;            /* 填满容器 */
+  width: 100%;
+  height: 100%;
+}
+
+/* 键盘可访问性 */
+.mainContent .section2 .yt-item:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: -3px;
+}
+
+/* 响应式：窄屏改为上下堆叠；播放器回到 16:9 自适应 */
+@media (max-width: 900px) {
+  .mainContent .section2 .yt-shell { flex-direction: column; }
+  .mainContent .section2 .yt-player-wrap {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .mainContent .section2 .yt-playlist {
+    height: auto;
+    max-height: none; /* 移动端不强制内部滚动，避免双滚争抢 */
+  }
+}
+
+/* 滚动条（仅左侧清单） */
+/* 让轨道上下各留 8px 空白 —— 滚动条看起来更短 */
+.mainContent .section2 .yt-playlist::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;          /* 或者用 margin-block: 8px; */
+  border-radius: 999px;
+}
+
+.mainContent .section2 .yt-playlist::-webkit-scrollbar {
+  width: 10px; /* 你可以改成 10 / 14 / 16，下面样式会自动适配 */
+}
+
+.mainContent .section2 .yt-playlist::-webkit-scrollbar-track {
+  background: transparent; /* 不加背景 = 默认白色 / 看起来干净 */
+}
+
+.mainContent .section2 .yt-playlist::-webkit-scrollbar-thumb {
+  background: rgb(254, 111, 97);
+  border-radius: 10px;
+  border: 3px solid transparent; /* 保持圆角视觉，更轻盈 */
+}
+
+.mainContent .section2 .yt-playlist::-webkit-scrollbar-thumb:hover {
+  background: rgb(15, 76, 130);
+}
+
+
+.mainContent .section2 .yt-playlist::-webkit-scrollbar-button {
+  display: none;
+}
+
+
 /*
 .gallery{
 	background-image: url('../images/K.png');
@@ -468,10 +598,178 @@ header .profileContainer {
     height: 56vmin;
 }
 */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.writing{
+  --maxw: 70ch;
+  --pad: clamp(1rem, 2vw + .5rem, 2rem);
+  --size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  /*--size: clamp(0.95rem, 0.85rem + 0.45vw, 1.1rem);*/
+  --leading: 1.75; /* 行高也略收紧（可选） */
+  --leading: 1.75; /* 行高也略收紧（可选） */
+  --leading: 1.85;
+  --fg: #121212;
+  --muted: #666;
+  --bg: #fff;
+  --link: #0b65c2;
+  --border: #eaeaea;
 
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--pad);
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+
+  font: 400 var(--size)/var(--leading) ui-serif, Georgia, Cambria, "Times New Roman",
+        /* 中文衬线/书写备选（按需加载上面的 Web 字体） */
+        "LXGW WenKai", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  hanging-punctuation: first last;
+  hyphens: auto;
+  text-wrap: pretty; /* 更好的换行 */
+}
+
+/* 段落与常用元素 */
+.writing p{ margin: 0 0 1.05em; }
+.writing p:last-child{ margin-bottom: 0; }
+.writing a{
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+.writing em{ font-style: italic; }
+.writing strong{ font-weight: 600; }
+
+/* 引用等扩展（可选） */
+.writing blockquote{
+  margin: 1.25em 0;
+  padding: .5em 1em;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  background: rgba(0,0,0,.02);
+  border-radius: 8px;
+}
+
+/* 代码小片段（可选） */
+.writing code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .95em;
+  background: #f6f7f9;
+  padding: .15em .35em;
+  border-radius: 6px;
+}
+
+/* 深色模式自动适配 */
+@media (prefers-color-scheme: dark){
+  .writing{
+    --fg: #eaeaea;
+    --muted: #a8a8a8;
+    --bg: #0b0b0b;
+    --border: #1f1f1f;
+    --link: #86b7ff;
+    box-shadow: none;
+  }
+  .writing code{ background: #121418; }
+  .writing blockquote{ background: rgba(255,255,255,.03); }
+}
+
+/* 可选：首段首字下沉（给容器加 .dropcap 即可启用） */
+.writing.dropcap > p:first-of-type::first-letter{
+  initial-letter: 2;               /* Safari/Chromium 新特性 */
+  -webkit-initial-letter: 2;
+  margin-right: .1em;
+  font-weight: 600;
+}
+@supports not (initial-letter: 2){
+  .writing.dropcap > p:first-of-type::first-letter{
+    float: left; font-size: 3.2em; line-height: .9; margin: .05em .15em .05em 0;
+  }
+}
+
+/* 中英混排微调：中文略增字距 */
+.writing :lang(zh){ letter-spacing: .02em; }
+
+/* ---- 统一变量（可按需改） ---- */
+.writing{
+  --link: #0b65c2;
+  --link-hl: rgba(11,101,194,.18);   /* 高亮底色 */
+  --ring: rgba(11,101,194,.35);      /* 焦点可见性 */
+}
+@media (prefers-color-scheme: dark){
+  .writing{
+    --link: #86b7ff;
+    --link-hl: rgba(134,183,255,.18);
+    --ring: rgba(134,183,255,.35);
+  }
+}
+
+/* A. 动画底线：进入时由左到右“生长” */
+.writing a.link-swipe{
+  color: var(--link);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100%/0 2px no-repeat;
+  transition: background-size .25s ease;
+  text-underline-offset: .18em; /* 保留良好行高 */
+}
+.writing a.link-swipe:hover,
+.writing a.link-swipe:focus{
+  background-size: 100% 2px;
+}
+
+/* B. 荧光笔高亮：像被马克笔划过（多行也好看） */
+.writing a.link-mark{
+  color: inherit;                /* 文字跟随正文颜色 */
+  text-decoration: none;
+  box-shadow: inset 0 -.35em var(--link-hl);
+  transition: box-shadow .25s ease;
+  border-radius: .15em;
+}
+.writing a.link-mark:hover,
+.writing a.link-mark:focus{
+  box-shadow: inset 0 -.6em var(--link-hl);
+}
+
+/* C. 外链箭头：外部链接加 ↗ 图标，轻微动效 */
+.writing a.ext{
+  position: relative;
+  text-decoration-thickness: from-font;
+  text-underline-offset: .18em;
+  color: var(--link);
+}
+.writing a.ext::after{
+  content: "↗";
+  font-size: .85em;
+  margin-left: .2em;
+  opacity: .6;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.writing a.ext:hover::after,
+.writing a.ext:focus::after{
+  transform: translate(.05em,-.05em);
+  opacity: .9;
+}
+
+/* 可访问性：键盘聚焦环 */
+.writing a:focus-visible{
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: .2em;
+}
+
+/* 关怀动效：系统偏好减少动效时禁用动画 */
+@media (prefers-reduced-motion: reduce){
+  .writing a{ transition: none !important; }
+}
+
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* Footer */
 footer{
-	padding-top: 250px;
+	padding-top: 20px;/*no writing: 250px;*/
 }
 footer .footerDisclaimer {
 	font-family: sans-serif;
