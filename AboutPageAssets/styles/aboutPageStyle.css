@@ -422,7 +422,7 @@ header .profileContainer .close:hover, .close:focus {
     display: block;
     /* Laptop/Desktop Override */
     border-radius: 25px;
-    border-color: rgba(247,207,126,1);
+    border-color: rgba(81,80,80,1);
 }
 
 .section2 .showPlace {
