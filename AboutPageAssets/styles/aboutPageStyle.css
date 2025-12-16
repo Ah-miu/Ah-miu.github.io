@@ -545,6 +545,16 @@ header .profileContainer .close:hover, .close:focus {
 }
 
 /* =========================================
+   Paper BG
+   ========================================= */
+#MathNAS {
+  background-image: url('../images/gallery/Emei Mountain.jpg');
+  background-size: cover;
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
    YouTube Gallery Shell
    ========================================= */
 .mainContent .section2 .yt-shell {
