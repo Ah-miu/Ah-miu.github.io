@@ -313,6 +313,37 @@ header .profileContainer .close:hover, .close:focus {
 }
 
 /* =========================================
+   Research Statement
+   ========================================= */
+.researchStatement {
+    clear: both;
+    margin: 34px 0 6px;
+    padding: 6px 0 6px 22px;
+    border-left: 3px solid rgba(15,76,129,0.85);
+}
+.researchStatement .researchEyebrow {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(15,76,129,0.95);
+    margin: 0 0 10px;
+}
+.researchStatement .researchLead {
+    font-family: sans-serif;
+    font-size: 16.5px;
+    font-weight: 500;
+    line-height: 1.78;
+    color: #1a1a1a;
+    margin: 0;
+}
+.researchStatement .researchLead strong {
+    color: rgba(43,48,123,1.00);
+    font-weight: 700;
+}
+
+/* =========================================
    Main Content Sections
    ========================================= */
 .mainContent {
