@@ -4,6 +4,10 @@
 /* =========================================
    Global Styles
    ========================================= */
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin-left: auto;
     margin-right: auto;
