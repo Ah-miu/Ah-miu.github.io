@@ -67,6 +67,18 @@
       track.dataset.prevPercentage = track.dataset.prevPercentage || "0";
       track.dataset.percentage = track.dataset.percentage || "0";
 
+      const images = track.getElementsByClassName("image");
+      // 每帧最多播一次动画（同样的 1200ms 跟随），输入事件比屏幕刷新快时不重复叠加
+      let pending = null;
+      const render = () => {
+        const next = pending;
+        pending = null;
+        track.animate({ transform: `translate(${next}%, -50%)` }, { duration: 1200, fill: "forwards" });
+        for (const image of images) {
+          image.animate({ objectPosition: `${100 + next}% center` }, { duration: 1200, fill: "forwards" });
+        }
+      };
+
       const handleOnDown = (clientX) => { track.dataset.mouseDownAt = String(clientX); };
       const handleOnUp = () => {
         track.dataset.mouseDownAt = "0";
@@ -81,20 +93,41 @@
         const next = Math.max(Math.min(prev + percentage, 0), -100);
 
         track.dataset.percentage = String(next);
-        track.animate({ transform: `translate(${next}%, -50%)` }, { duration: 1200, fill: "forwards" });
-        for (const image of track.getElementsByClassName("image")) {
-          image.animate({ objectPosition: `${100 + next}% center` }, { duration: 1200, fill: "forwards" });
-        }
+        if (pending === null) requestAnimationFrame(render);
+        pending = next;
       };
 
-      // 鼠标
+      // 鼠标（页面任意位置按住都能拖，保持原样）
       window.addEventListener('mousedown', (e) => handleOnDown(e.clientX));
       window.addEventListener('mouseup', handleOnUp);
       window.addEventListener('mousemove', (e) => handleOnMove(e.clientX));
-      // 触控
-      window.addEventListener('touchstart', (e) => handleOnDown(e.touches[0].clientX), { passive: true });
-      window.addEventListener('touchend', handleOnUp);
-      window.addEventListener('touchmove', (e) => handleOnMove(e.touches[0].clientX), { passive: true });
+      // 触控：只有在相册上按下、并且横向划动时才拖；上下滑页面不带动相册
+      let touchStart = null;
+      let axis = null;   // null 还没判断 / 'x' 拖相册 / 'y' 滚页面
+      track.parentElement.addEventListener('touchstart', (e) => {
+        touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        axis = null;
+      }, { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        if (!touchStart) return;
+        const t = e.touches[0];
+        if (axis === null) {
+          const dx = Math.abs(t.clientX - touchStart.x);
+          const dy = Math.abs(t.clientY - touchStart.y);
+          if (Math.max(dx, dy) < 8) return;
+          axis = dx > dy ? 'x' : 'y';
+          // 从按下的位置算起，判断方向用掉的那几像素也算进拖动距离
+          if (axis === 'x') handleOnDown(touchStart.x);
+        }
+        if (axis === 'x') handleOnMove(t.clientX);
+      }, { passive: true });
+      const handleOnTouchEnd = () => {
+        if (axis === 'x') handleOnUp();
+        touchStart = null;
+        axis = null;
+      };
+      window.addEventListener('touchend', handleOnTouchEnd);
+      window.addEventListener('touchcancel', handleOnTouchEnd);
     }
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // —— 邮件复制 —— //
