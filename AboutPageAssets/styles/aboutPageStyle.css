@@ -89,7 +89,8 @@ header .profilePhoto img {
 }
 
 header .profilePhoto .default-image { opacity: 1; }
-header .profilePhoto .hover-image { opacity: 0; }
+/* portrait photo: full width, the top cropped away, the face kept in the lower middle */
+header .profilePhoto .hover-image { opacity: 0; object-fit: cover; object-position: 50% 100%; }
 header .profilePhoto:hover .default-image { opacity: 0; }
 header .profilePhoto:hover .hover-image { opacity: 1; }
 
