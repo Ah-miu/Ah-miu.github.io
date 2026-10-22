@@ -442,6 +442,42 @@ header .profileContainer .close:hover, .close:focus {
     padding: 15px;
 }
 
+/* Era dividers (Ph.D. / Undergraduate) */
+.section2 .eraDivider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(15,76,129,0.95);
+}
+.section2 .eraDivider::before,
+.section2 .eraDivider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(15,76,129,0.25);
+}
+
+/* Placeholder card for upcoming Ph.D. work (same card as .newPaper, no buttons) */
+/* the water demo's opening halo with "coming soon" in its marker, full bleed */
+.section2 .paperPlaceholder {
+    padding: 0;
+    overflow: hidden;
+    line-height: 0;
+    background-color: #000;
+}
+.section2 .paperPlaceholder img {
+    width: 100%;
+    /* same height as a card holding a paper image (222px + 3px border each side + 15px padding each side) */
+    height: 258px;
+    object-fit: cover;
+}
+
 /* Images in Section 2 */
 .section2 .onlyIMG {
     float: left;
