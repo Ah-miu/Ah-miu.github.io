@@ -50,7 +50,9 @@
         const citationText = raw.replace(/<br>/g, '\n');
         navigator.clipboard.writeText(citationText)
           .then(() => {
-            const confirmation = document.getElementById('copy-confirmation');
+            // 先找本卡片里的提示，没有再用全局的那个
+            const card = this.closest('.newPaper');
+            const confirmation = (card && card.querySelector('.copy-confirmation')) || document.getElementById('copy-confirmation');
             if (confirmation) {
               confirmation.style.display = 'block';
               setTimeout(() => { confirmation.style.display = 'none'; }, 2000);
@@ -59,6 +61,49 @@
           .catch(err => console.error('Error copying text: ', err));
       });
     });
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // —— Ah-miu 卡片：和 blog 首页一样，四段线框视频轮流淡入淡出 —— //
+    // 只在卡片可见时播放；系统开了“减少动态效果”就只显示第一张静图
+    const ahmiuBg = document.querySelector('.ahmiuHero .ahmiuBg');
+    if (ahmiuBg) {
+      const HERO = ['onetake', 'arm', 'drone', 'skip'];
+      const src = (k) => `AboutPageAssets/images/ah-miu/${HERO[k % HERO.length]}.mp4`;
+      const vids = Array.from(ahmiuBg.querySelectorAll('video'));
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let k = 0, front = 0, started = false, visible = false;
+
+      vids[0].classList.add('on');
+      const start = () => {
+        started = true;
+        vids[0].src = src(0);
+        vids[1].src = src(1);
+        vids[1].preload = 'auto';
+      };
+      const sync = () => {
+        if (still) return;
+        const v = vids[front];
+        if (visible && !document.hidden) {
+          if (!started) start();
+          if (v.paused && !v.ended) v.play().catch(() => {});
+        } else if (!v.paused) v.pause();
+      };
+      vids.forEach((v, j) => v.addEventListener('ended', () => {
+        if (j !== front) return;
+        const a = vids[front], b = vids[1 - front];
+        k = (k + 1) % HERO.length;
+        front = 1 - front;
+        b.currentTime = 0;
+        if (visible) b.play().catch(() => {});
+        b.classList.add('on');
+        a.classList.remove('on');
+        setTimeout(() => { a.src = src(k + 1); a.load(); }, 1000);
+      }));
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+        sync();
+      }, { rootMargin: '200px 0px' }).observe(ahmiuBg);
+      document.addEventListener('visibilitychange', sync);
+    }
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // —— 横向 gallery 拖拽（#image-track） —— //
     const track = document.getElementById('image-track');

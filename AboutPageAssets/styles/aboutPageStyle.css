@@ -464,20 +464,85 @@ header .profileContainer .close:hover, .close:focus {
     background-color: rgba(15,76,129,0.25);
 }
 
-/* Placeholder card for upcoming Ph.D. work (same card as .newPaper, no buttons) */
-/* the water demo's opening halo with "coming soon" in its marker, full bleed */
-.section2 .paperPlaceholder {
-    padding: 0;
+/* Ah-miu hero card (Ph.D.): the blog's opening screen, full bleed */
+/* red wireframe clips cross-fading behind a dark centre, colours and wordmark from the blog */
+.section2 .ahmiuHero {
+    position: relative;
     overflow: hidden;
-    line-height: 0;
+    padding: 0;
+    min-height: 380px;
+    display: flex;
     background-color: #000;
 }
-.section2 .paperPlaceholder img {
+.section2 .ahmiuBg { position: absolute; inset: 0; }
+.section2 .ahmiuBg video {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    /* same height as a card holding a paper image (222px + 3px border each side + 15px padding each side) */
-    height: 258px;
+    height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
+.section2 .ahmiuBg video.on { opacity: 1; }
+.section2 .ahmiuShade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 52% 46% at 50% 50%, rgba(0,0,0,0.82), rgba(0,0,0,0.5) 55%, rgba(0,0,0,0) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,0.5));
+}
+.section2 .ahmiuText {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 24px 34px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, sans-serif;
+}
+.section2 .ahmiuTitle {
+    margin: 0;
+    font-size: clamp(64px, 11vw, 120px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #ff4834;
+    text-shadow: 0 0 44px rgba(255,72,52,0.3);
+}
+/* two levels: the first half of the title brighter, the second half smaller and dimmer */
+.section2 .ahmiuSub { margin: 18px 0 0; line-height: 1.35; }
+.section2 .ahmiuSub .l1 { display: block; font-size: 21px; font-weight: 500; color: #f3efe8; }
+.section2 .ahmiuSub .l2 { display: block; margin-top: 4px; font-size: 15px; color: rgba(243,239,232,0.6); }
+/* four big equal buttons spread across ~80% of the card, red outline like the wordmark */
+.section2 .ahmiuLinks {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 145px));
+    justify-content: center;
+    column-gap: clamp(14px, 7%, 70px);
+    width: 100%;
+    margin-top: 40px;
+}
+.section2 .ahmiuLinks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,72,52,0.75);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #f3efe8;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+.section2 .ahmiuLinks a:hover { background: #ff4834; text-decoration: none; }
+.section2 .ahmiuHero .copy-confirmation { margin-top: 12px; font-size: 13px; color: #f3efe8; }
 
 /* Images in Section 2 */
 .section2 .onlyIMG {
