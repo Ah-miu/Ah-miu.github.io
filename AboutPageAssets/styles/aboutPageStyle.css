@@ -415,6 +415,32 @@ header .profileContainer .close:hover, .close:focus {
     font-size: inherit;
 }
 .section2 .sectionTitle a:hover { color: #005f8f; }
+/* bilibili 没有 ionicons 图标，用内联 SVG，大小和颜色跟 ion-icon 一样 */
+.section2 .sectionTitle .bili-logo {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+/* B 站粉丝、播放、获赞：跟在图标后面的浅蓝小胶囊，数字由 JS 填进来 */
+.section2 .sectionTitle .bili-stats {
+    margin-left: 8px;
+}
+.section2 .sectionTitle .bili-stats span {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(15,76,129,0.08);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(11,11,82,0.7);
+    vertical-align: 3px;
+}
+.section2 .sectionTitle .bili-stats b {
+    font-weight: 700;
+    color: rgba(11,11,82,1);
+}
 
 .section2 .sectionTitleRule {
     margin: 0 3% 0 0;
