@@ -105,9 +105,9 @@
       document.addEventListener('visibilitychange', sync);
     }
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // —— B 站数字：粉丝、总播放、获赞 —— //
+    // —— B 站数字：粉丝、视频总播放、视频总点赞 —— //
     // B 站接口不让别的网站直接调用，借 shields.io 中转（允许跨域，缓存 2 分钟）
-    // 总播放没有免登录的接口，只能逐个视频取播放量再加起来；投稿列表接口常被风控拦，
+    // 播放和点赞只算视频（账号的“获赞”还含动态等，会偏多），逐个视频取再加起来；投稿列表接口常被风控拦，
     // 所以视频 BV 号写在 data-videos 里，发了新视频要补上。哪个数字拿不到就不显示哪个
     const biliStats = document.querySelector('.bili-stats');
     if (biliStats) {
@@ -121,11 +121,11 @@
             if (!Number.isFinite(n)) throw new Error(`shields: ${j.value}`);
             return n;
           });
-      const views = Promise.all(videos.map(bv => ask(`https://api.bilibili.com/x/web-interface/view?bvid=${bv}`, '$.data.stat.view')))
+      const sum = (field) => Promise.all(videos.map(bv => ask(`https://api.bilibili.com/x/web-interface/view?bvid=${bv}`, `$.data.stat.${field}`)))
         .then(vs => vs.reduce((a, b) => a + b, 0));
       const fmt = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
       const names = ['followers', 'views', 'likes'];
-      Promise.allSettled([ask(card, '$.data.follower'), views, ask(card, '$.data.like_num')]).then(rs => {
+      Promise.allSettled([ask(card, '$.data.follower'), sum('view'), sum('like')]).then(rs => {
         rs.forEach((r, i) => {
           if (r.status !== 'fulfilled') return;
           const pill = document.createElement('span');
