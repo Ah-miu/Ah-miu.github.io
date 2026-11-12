@@ -475,6 +475,20 @@ header .profileContainer .close:hover, .close:focus {
     font-weight: 500;
     color: rgba(11,11,82,0.45);
 }
+/* 小红书点赞收藏合成一个数：心形右下角叠一颗小实心星，描一圈胶囊底色把两者分开 */
+.section2 .statGroup .combo {
+    position: relative;
+    display: inline-flex;
+    width: 17px;
+}
+.section2 .statGroup .combo .sub {
+    position: absolute;
+    right: -1px;
+    bottom: -2px;
+    font-size: 9px;
+    color: rgba(11,11,82,0.8);
+    filter: drop-shadow(0 0 1px #ecf1f5) drop-shadow(0 0 1px #ecf1f5);
+}
 
 .section2 .sectionTitleRule {
     margin: 0 3% 0 0;
@@ -603,6 +617,27 @@ header .profileContainer .close:hover, .close:focus {
 }
 .section2 .ahmiuLinks a:hover { background: #ff4834; text-decoration: none; }
 .section2 .ahmiuHero .copy-confirmation { margin-top: 12px; font-size: 13px; color: #f3efe8; }
+/* "showcased at" mark: one dim line running down the right edge, links to the summit site */
+.section2 .ahmiuShowcase {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    font: 600 9.5px/1 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(243,239,232,0.42);
+    transition: color 0.2s ease;
+}
+.section2 .ahmiuShowcase i { width: 1px; height: 26px; background: rgba(255,72,52,0.8); }
+.section2 .ahmiuShowcase:hover { color: #f3efe8; text-decoration: none; }
 
 /* Images in Section 2 */
 .section2 .onlyIMG {
